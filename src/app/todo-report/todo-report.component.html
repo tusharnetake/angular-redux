@@ -1,0 +1,22 @@
+<p class="text">
+        <span class="badge badge-secondary">Last Update: {{(lastUpdate | async ) | date:'mediumTime'}} | Total items: {{(todos | async)?.length}}</span>
+    </p>
+    
+    <table class="table table-striped">
+        <tr>
+            <th>No.</th>
+            <th>DESCRIPTION</th>
+            <th>RESPONSIBLE</th>
+            <th>PRIORITY</th>
+            <th>COMPLETED</th>
+        </tr>
+            <tr *ngFor="let item of (todos | async)"  [ngClass]="{'completed':item.isCompleted}">
+                <td>{{item.id}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.responsible}}</td>
+                <td>{{item.priority}}</td>
+                <td>{{item.isCompleted}}</td>
+               
+            </tr>
+       
+    </table>
